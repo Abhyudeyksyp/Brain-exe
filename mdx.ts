@@ -37,7 +37,7 @@ return {
 slug,
 title:
 slug
-.replaceAll('-', ' ')
+.split('-').join(' ')
 .toUpperCase(),
 
 content,
@@ -64,6 +64,7 @@ file.replace('.md',''),
 title:
 file
 .replace('.md','')
-.replaceAll('-',' ')
+.split('-')
+.join(' ')
 }))
 }

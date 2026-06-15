@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Article } from '../../types'
 import { formatDate } from '../../utils'
 
 interface ArticleGridProps {
-  articles: Article[]
+  articles: any[]
 }
 
 const ArticleGrid = ({ articles }: ArticleGridProps) => {

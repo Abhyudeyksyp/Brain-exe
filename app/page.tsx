@@ -1,8 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-
 import HeroSection from '@/components/home/HeroSection'
 import FeaturedArticles from '@/components/home/FeaturedArticles'
 import CategorySelector from '@/components/home/CategorySelector'
@@ -42,57 +40,42 @@ ease: 'easeOut',
 export default function Home() {
 
 const allArticles = [
-
 {
-title: 'Apple M-Series Explained',
-slug: 'apple-m-series',
-excerpt: 'How Apple chips changed computing',
+title:'Apple M-Series Explained',
+slug:'apple-m-series',
+excerpt:'How Apple chips changed computing'
 },
-
 {
-title: 'Formula 1 Aerodynamics',
-slug: 'f1-aerodynamics',
-excerpt: 'Understanding airflow and speed',
+title:'Formula 1 Aerodynamics',
+slug:'f1-aerodynamics',
+excerpt:'Understanding airflow and speed'
 },
-
 {
-title: 'Coffee Shop WiFi',
-slug: 'coffee-shop-wifi',
-excerpt: 'Public WiFi risks explained',
+title:'Coffee Shop WiFi',
+slug:'coffee-shop-wifi',
+excerpt:'Public WiFi risks explained'
 },
-
 {
-title: 'Attention Economy',
-slug: 'attention-economy',
-excerpt: 'How apps compete for attention',
-},
-
+title:'Attention Economy',
+slug:'attention-economy',
+excerpt:'How apps compete for attention'
+}
 ]
 
 const featuredArticles =
-allArticles.slice(0, 3)
+allArticles.slice(0,3)
 
 return (
 
 <div className="relative">
 
 <ScrollProgress />
-
 <ParticleBackground />
 
-
-
-{/* HERO */}
-
 <section className="relative min-h-screen overflow-hidden">
-
 <HeroSection />
-
 </section>
 
-
-
-{/* FEATURED */}
 
 <section className="relative py-20 md:py-32 container-max">
 
@@ -100,10 +83,7 @@ return (
 variants={containerVariants}
 initial="hidden"
 whileInView="visible"
-viewport={{
-once: true,
-amount: 0.3
-}}
+viewport={{ once:true, amount:0.3 }}
 >
 
 <motion.div
@@ -122,9 +102,9 @@ Featured
 
 <p className="text-dark-300 text-lg max-w-2xl">
 
-Dive into the latest explorations
-across technology, Formula 1,
-AI and the future.
+Dive into technology,
+Formula 1,
+AI and future ideas.
 
 </p>
 
@@ -139,9 +119,6 @@ articles={featuredArticles}
 </section>
 
 
-
-{/* CATEGORY */}
-
 <section className="relative py-12 container-max">
 
 <CategorySelector />
@@ -149,19 +126,13 @@ articles={featuredArticles}
 </section>
 
 
-
-{/* ARTICLE GRID */}
-
 <section className="relative py-20 md:py-32 container-max">
 
 <motion.div
 variants={containerVariants}
 initial="hidden"
 whileInView="visible"
-viewport={{
-once: true,
-amount: 0.3
-}}
+viewport={{ once:true, amount:0.3 }}
 >
 
 <motion.div
@@ -189,27 +160,22 @@ articles={allArticles}
 </section>
 
 
-
-{/* JOIN COMMUNITY */}
-
 <section className="relative py-20 md:py-32 container-max">
 
 <motion.div
 
-initial={{
-opacity: 0
-}}
+initial={{ opacity:0 }}
 
 whileInView={{
-opacity: 1
+opacity:1
 }}
 
 viewport={{
-once: true
+once:true
 }}
 
 transition={{
-duration: 0.8
+duration:0.8
 }}
 
 className="
@@ -238,22 +204,17 @@ to-accent-purple/10
 <motion.div
 
 initial={{
-y: 20,
-opacity: 0
+y:20,
+opacity:0
 }}
 
 whileInView={{
-y: 0,
-opacity: 1
-}}
-
-viewport={{
-once: true
+y:0,
+opacity:1
 }}
 
 transition={{
-duration: 0.6,
-delay: 0.2
+duration:0.6
 }}
 
 className="relative z-10"
@@ -274,13 +235,9 @@ Join the
 
 <p className="text-dark-300 text-lg mb-8 max-w-2xl mx-auto">
 
-Subscribe and receive
-new articles,
-future experiments,
-AI ideas and premium drops.
+Subscribe and receive updates.
 
 </p>
-
 
 
 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -293,16 +250,15 @@ className="input-field flex-1"
 />
 
 <button
+
 onClick={async()=>{
 
-const input=
+const input =
 document.getElementById(
 'email'
 ) as HTMLInputElement
 
-if(
-!input?.value
-){
+if(!input.value){
 
 alert(
 'Enter email'
@@ -312,11 +268,12 @@ return
 
 }
 
-const response=
+try{
+
+const response =
 await fetch(
 '/api/subscribe',
 {
-
 method:'POST',
 
 headers:{
@@ -326,22 +283,13 @@ headers:{
 
 body:
 JSON.stringify({
-
 email:
 input.value
-
 })
-
 }
-
 )
 
-const data =
-await response.json()
-
-if(
-response.ok
-){
+if(response.ok){
 
 alert(
 '🎉 Check your inbox'
@@ -349,21 +297,29 @@ alert(
 
 input.value=''
 
-}
-
-else{
+}else{
 
 alert(
-data.message
-||
 'Subscription failed'
+)
+
+}
+
+}catch{
+
+alert(
+'Server error'
 )
 
 }
 
 }}
 
-className="btn-primary whitespace-nowrap"
+className="
+btn-primary
+whitespace-nowrap
+"
+
 >
 
 Subscribe
@@ -381,4 +337,5 @@ Subscribe
 </div>
 
 )
+
 }

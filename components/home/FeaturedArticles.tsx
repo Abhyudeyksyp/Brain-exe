@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Article } from '../../types'
 import { formatDate } from '../../utils'
 
 interface FeaturedArticlesProps {
-  articles: Article[]
+articles: any[]
 }
 
 const FeaturedArticles = ({ articles }: FeaturedArticlesProps) => {
@@ -38,7 +37,7 @@ const FeaturedArticles = ({ articles }: FeaturedArticlesProps) => {
       viewport={{ once: true, amount: 0.3 }}
       className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
     >
-      {articles.map((article, index) => (
+      {articles.map((article) => (
         <motion.div
           key={article.slug}
           variants={itemVariants}

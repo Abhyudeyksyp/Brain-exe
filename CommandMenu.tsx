@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { getAllArticles } from '../../mdx'
+import { getAllArticles } from './mdx'
 import Link from 'next/link'
 
 const CommandMenu = () => {

@@ -27,18 +27,19 @@ export const truncate = (text: string, length: number = 160): string => {
 }
 
 export const extractHeadings = (content: string) => {
-  const headings = []
+const headings: any[] = []
   const regex = /^#{1,6}\s+(.+)$/gm
   let match
 
   while ((match = regex.exec(content)) !== null) {
-    const level = match[0].match(/^#+/)[0].length
-    headings.push({
-      level,
-      text: match[1],
-      id: match[1].toLowerCase().replace(/\s+/g, '-'),
-    })
-  }
+  const level =
+    match[0]?.match(/^#+/)?.[0]?.length ?? 1
+
+  headings.push({
+    level,
+    text: match[1] || '',
+  })
+}
 
   return headings
 }
