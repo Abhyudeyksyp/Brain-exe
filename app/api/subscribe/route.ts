@@ -6,45 +6,27 @@ process.env.RESEND_API_KEY
 )
 
 export async function POST(
-req: Request
-){
+request: Request
+) {
 
-try{
+try {
 
 const { email } =
-await req.json()
+await request.json()
 
-if(
-!email
-){
+if (
+!email ||
+!email.includes('@')
+) {
 return NextResponse.json(
 {
-success:false,
-message:'Email required'
+message:
+'Enter a valid email'
 },
 {
 status:400
 }
 )
-}
-
-const emailRegex =
-/^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-if(
-!emailRegex.test(email)
-){
-
-return NextResponse.json(
-{
-success:false,
-message:'Invalid email address'
-},
-{
-status:400
-}
-)
-
 }
 
 await resend.emails.send({
@@ -56,33 +38,34 @@ to:
 email,
 
 subject:
-'Welcome to Brain.exe',
+'🎉 Welcome to Brain.exe',
 
-html:`
-<h1>Welcome to Brain.exe 🚀</h1>
+html: `
+<h1>Welcome to Brain.exe</h1>
+
 <p>
 You subscribed successfully.
+</p>
+
+<p>
+You’ll receive future articles and updates.
 </p>
 `
 
 })
 
-return NextResponse.json(
-{
+return NextResponse.json({
 success:true
-}
-)
+})
 
 }
 
-catch(error){
-
-console.error(error)
+catch {
 
 return NextResponse.json(
 {
-success:false,
-message:'Subscription failed'
+message:
+'Email send failed'
 },
 {
 status:500
