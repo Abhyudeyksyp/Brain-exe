@@ -22,7 +22,28 @@ subject:
 
 html: `
 <h1>Welcome to Brain.exe 🚀</h1>
-<p>You subscribed successfully.</p>
+<p>Hey CRAZYY MINDDDDDDDDDDDDDDDDD,>
+
+<p>You've successfully subscribed to **Brain.exe**.</p>
+
+<p>No spam. No endless sales pitches. No "10x productivity hacks. HEHEHEHEHEHEEHEHEHEHEHEHE"</p>
+
+<p>Just occasional updates on:></p>
+
+<ul>
+<li>* AI & emerging tech</li>
+<li>* Interesting internet finds</li>
+<li>* Thought-provoking articles</li>
+<li>* Random things worth reading</li>
+</ul>
+
+<p>Think of it as a small signal in a very noisy feed.
+Until then, keep your curiosity running.</p>
+
+— <p>Brain.exe</p>
+
+<p><sub>Built and maintained by Abhyuday Kashyap.</sub>
+.</p>
 `
 
 })
