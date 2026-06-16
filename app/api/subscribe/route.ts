@@ -1,71 +1,49 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(
-process.env.RESEND_API_KEY
-)
+const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST(
-request: Request
-) {
-
+export async function POST(req: Request) {
 try {
 
-const { email } =
-await request.json()
+const { email } = await req.json()
 
-if (
-!email ||
-!email.includes('@')
-) {
-return NextResponse.json(
-{
-message:
-'Enter a valid email'
-},
-{
-status:400
-}
-)
-}
+console.log('EMAIL RECEIVED:', email)
 
-await resend.emails.send({
+const result = await resend.emails.send({
 
 from:
-'onboarding@resend.dev',
-
+'Brain.exe <hello@brainexe.online>',
 to:
 email,
 
 subject:
-'🎉 Welcome to Brain.exe',
+'Welcome to Brain.exe',
 
 html: `
-<h1>Welcome to Brain.exe</h1>
-
-<p>
-You subscribed successfully.
-</p>
-
-<p>
-You’ll receive future articles and updates.
-</p>
+<h1>Welcome to Brain.exe 🚀</h1>
+<p>You subscribed successfully.</p>
 `
 
 })
 
+console.log(result)
+
 return NextResponse.json({
-success:true
+success:true,
+result
 })
 
 }
 
-catch {
+catch(error){
+
+console.error(error)
 
 return NextResponse.json(
 {
-message:
-'Email send failed'
+success:false,
+message:String(error)
 },
 {
 status:500
