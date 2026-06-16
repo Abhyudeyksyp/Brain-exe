@@ -5,8 +5,7 @@ return 'Recently published'
 }
 
 const parsed =
-new Date(date)
-
+new Date(date || Date.now())
 if (
 isNaN(parsed.getTime())
 ) {

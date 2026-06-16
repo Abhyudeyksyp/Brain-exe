@@ -48,7 +48,7 @@ href:'/articles/apple-m-series'
       title: 'Connect',
       links: [
         { name: 'Instagram', href: 'https://www.instagram.com/abhyudeyk/' },
-        { name: 'GitHub', href: 'https://github.com/Abhyudeyksyp' },
+        { name: 'GitHub', href: 'https://github.com/Abhyudeyksyp/Brain-exe' },
         { name: 'LinkedIn', href: 'https://www.linkedin.com/in/abhyudaya-kashyap-a56a70323/' },
         { name: 'Email', href: 'abhyudayksyp3007@gmail.com' },
       ],
