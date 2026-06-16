@@ -43,22 +43,27 @@ const allArticles = [
 {
 title:'Apple M-Series Explained',
 slug:'apple-m-series',
-excerpt:'How Apple chips changed computing'
+excerpt:'How Apple chips changed computing',
+date:'2026-06-15'
 },
 {
 title:'Formula 1 Aerodynamics',
 slug:'f1-aerodynamics',
-excerpt:'Understanding airflow and speed'
+excerpt:'Understanding airflow and speed',
+date:'2026-06-14'
 },
 {
 title:'Coffee Shop WiFi',
 slug:'coffee-shop-wifi',
-excerpt:'Public WiFi risks explained'
+excerpt:'Public WiFi risks explained',
+date:'2026-06-13'
+
 },
 {
 title:'Attention Economy',
 slug:'attention-economy',
-excerpt:'How apps compete for attention'
+excerpt:'How apps compete for attention',
+date:'2026-06-12'
 }
 ]
 

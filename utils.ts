@@ -1,9 +1,27 @@
-export const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
+export function formatDate(date?: string) {
+
+if (!date) {
+return 'Recently published'
+}
+
+const parsed =
+new Date(date)
+
+if (
+isNaN(parsed.getTime())
+) {
+return 'Recently published'
+}
+
+return parsed.toLocaleDateString(
+'en-US',
+{
+year:'numeric',
+month:'long',
+day:'numeric'
+}
+)
+
 }
 
 export const calculateReadingTime = (content: string): number => {
