@@ -47,7 +47,26 @@ Until then, keep your curiosity running.</p>
 `
 
 })
+await resend.emails.send({
 
+from:
+'Brain.exe <hello@brainexe.online>',
+
+to:
+'Abhyudayksyp3007@gmail.com',
+
+subject:
+'🔥 New Brain.exe Subscriber',
+
+html: `
+<p>New subscriber joined:</p>
+
+<p>
+<strong>${email}</strong>
+</p>
+`
+
+})
 console.log(result)
 
 return NextResponse.json({
